@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const GAME_BOARD_WIDTH = 16;
-const GAME_BOARD_HEIGHT = 16;
+const GAME_BOARD_WIDTH = 4;
+const GAME_BOARD_HEIGHT = 4;
 const FPS = 5;
 const KEY_MAP = {
   119: '^ ',
@@ -153,7 +153,7 @@ class Game {
       }
       let code = key.charCodeAt(0);
       let newDir = KEY_MAP[code];
-      if (this.snake.canSwitchDir(newDir)) {
+      if (newDir && this.snake.canSwitchDir(newDir)) {
         this.currentDirection = newDir;
       }
     });
