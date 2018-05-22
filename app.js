@@ -91,6 +91,7 @@ class Game {
     if (!pick) {
       this.win = true;
       this.isEnd = false;
+      this.currentFood = null;
     } else {
       this.currentFood = new Entity(pick[0], pick[1]);
     }
@@ -135,7 +136,9 @@ class Game {
     }
     lines[this.snake.y + 1][this.snake.x + 1] = this.currentDirection;
     this.snake.tails.forEach((xy) => { lines[xy[1] + 1][xy[0] + 1] = 'x '; });
-    lines[this.currentFood.y + 1][this.currentFood.x + 1] = 'O ';
+    if (this.currentFood) {
+      lines[this.currentFood.y + 1][this.currentFood.x + 1] = 'O ';
+    }
     let buffer = lines.map(l => l.join('')).join('\n');
     buffer += `\nScore: ${this.score}\n`;
     if (this.isEnd) {
