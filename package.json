@@ -1,0 +1,16 @@
+{
+    "name": "snake",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node app.js"
+    },
+    "devDependencies": {
+        "eslint": "^4.11.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-node": "^5.2.1",
+        "eslint-plugin-react": "^7.5.1"
+    }
+}
