@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const GAME_BOARD_WIDTH = 4;
 const GAME_BOARD_HEIGHT = 4;
-const FPS = 5;
+const FPS = 2;
 const KEY_MAP = {
   119: '^ ',
   97: '< ',
@@ -88,7 +88,12 @@ class Game {
       }
     }
     let pick = candidates[Utils.randInt(candidates.length)];
-    this.currentFood = new Entity(pick[0], pick[1]);
+    if (!pick) {
+      this.win = true;
+      this.isEnd = false;
+    } else {
+      this.currentFood = new Entity(pick[0], pick[1]);
+    }
   }
   isWall (x, y) {
     return x === -1 || y === -1 || x === GAME_BOARD_WIDTH || y === GAME_BOARD_HEIGHT;
